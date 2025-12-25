@@ -1,0 +1,17 @@
+module.exports=[82584,a=>{"use strict";var b=a.i(69429);let c=(0,b.registerClientReference)(function(){throw Error("Attempted to call ThemeProvider() from the server but ThemeProvider is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.")},"[project]/Documents/Sri/appConf/app/lib/theme-context.tsx <module evaluation>","ThemeProvider"),d=(0,b.registerClientReference)(function(){throw Error("Attempted to call useTheme() from the server but useTheme is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.")},"[project]/Documents/Sri/appConf/app/lib/theme-context.tsx <module evaluation>","useTheme");a.s(["ThemeProvider",0,c,"useTheme",0,d])},89509,a=>{"use strict";var b=a.i(69429);let c=(0,b.registerClientReference)(function(){throw Error("Attempted to call ThemeProvider() from the server but ThemeProvider is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.")},"[project]/Documents/Sri/appConf/app/lib/theme-context.tsx","ThemeProvider"),d=(0,b.registerClientReference)(function(){throw Error("Attempted to call useTheme() from the server but useTheme is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.")},"[project]/Documents/Sri/appConf/app/lib/theme-context.tsx","useTheme");a.s(["ThemeProvider",0,c,"useTheme",0,d])},41001,a=>{"use strict";a.i(82584);var b=a.i(89509);a.n(b)},69374,a=>{"use strict";var b=a.i(61173),c=a.i(41001);function d({children:a}){return(0,b.jsxs)("html",{lang:"en",suppressHydrationWarning:!0,children:[(0,b.jsxs)("head",{children:[(0,b.jsx)("script",{dangerouslySetInnerHTML:{__html:`
+              (function() {
+                try {
+                  var theme = localStorage.getItem('confagenda-theme');
+                  var resolved = theme;
+                  if (!theme || theme === 'system') {
+                    resolved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  }
+                  document.documentElement.classList.add(resolved);
+                  document.documentElement.style.colorScheme = resolved;
+                } catch (e) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `}}),(0,b.jsx)("link",{rel:"preconnect",href:"https://fonts.googleapis.com"}),(0,b.jsx)("link",{rel:"preconnect",href:"https://fonts.gstatic.com",crossOrigin:"anonymous"})]}),(0,b.jsx)("body",{className:"min-h-screen antialiased bg-[var(--color-background)] text-[var(--color-text-primary)]",children:(0,b.jsx)(c.ThemeProvider,{defaultTheme:"system",children:a})})]})}a.s(["default",()=>d,"metadata",0,{title:"ConfAgenda | Conference Schedule",description:"Beautiful, configurable conference schedule application",keywords:["conference","schedule","agenda","events"]},"viewport",0,{width:"device-width",initialScale:1,maximumScale:1,userScalable:!1,themeColor:"#0a0a0f"}])}];
+
+//# sourceMappingURL=Documents_Sri_appConf_app_62043eee._.js.map

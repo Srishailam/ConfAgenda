@@ -1,0 +1,3 @@
+{
+  "/[conferenceSlug]/page": "app/[conferenceSlug]/page.js"
+}

@@ -1,0 +1,161 @@
+[
+  {
+    "id": "rc-session-1",
+    "title": "Opening Keynote",
+    "about": "Welcome to React Conf 2025! Join us for the opening keynote where we'll share exciting updates about React's future.",
+    "since": "2025-05-15T09:00:00",
+    "endsAt": "2025-05-15T10:00:00",
+    "trackName": "Keynote",
+    "room": "Main Stage",
+    "roomOther": "Main Stage",
+    "presenters": [
+      {
+        "attributes": {
+          "name": "React Team",
+          "tagline": "React Core Team",
+          "company": {
+            "data": {
+              "attributes": {
+                "name": "Meta"
+              }
+            }
+          },
+          "profilePhoto": {
+            "data": null
+          },
+          "socialLinks": {
+            "twitter": "https://twitter.com/reactjs"
+          }
+        }
+      }
+    ],
+    "slug": "opening-keynote",
+    "displayOrder": 1,
+    "recordingLink": null,
+    "type": "SESSION",
+    "isPlenumSession": true
+  },
+  {
+    "id": "rc-session-2",
+    "title": "What's New in React 19",
+    "about": "A deep dive into all the new features and improvements in React 19, including Server Components, Actions, and more.",
+    "since": "2025-05-15T10:15:00",
+    "endsAt": "2025-05-15T10:45:00",
+    "trackName": "React Core",
+    "room": "Main Stage",
+    "roomOther": "Main Stage",
+    "presenters": [
+      {
+        "attributes": {
+          "name": "Sophie Alpert",
+          "tagline": "Engineering Manager",
+          "company": {
+            "data": {
+              "attributes": {
+                "name": "Meta"
+              }
+            }
+          },
+          "profilePhoto": {
+            "data": null
+          },
+          "socialLinks": {
+            "twitter": "https://twitter.com/sophiebits"
+          }
+        }
+      }
+    ],
+    "slug": "whats-new-react-19",
+    "displayOrder": 2,
+    "recordingLink": null,
+    "type": "SESSION",
+    "isPlenumSession": false
+  },
+  {
+    "id": "rc-break-1",
+    "title": "Coffee Break",
+    "about": "Networking and refreshments",
+    "since": "2025-05-15T10:45:00",
+    "endsAt": "2025-05-15T11:15:00",
+    "trackName": "Break",
+    "room": "Lobby",
+    "roomOther": "Lobby",
+    "presenters": [],
+    "slug": "coffee-break",
+    "displayOrder": 3,
+    "recordingLink": null,
+    "type": "SERVICE",
+    "isPlenumSession": true
+  },
+  {
+    "id": "rc-session-3",
+    "title": "React Native: The Next Chapter",
+    "about": "Discover the latest improvements in React Native and the roadmap for cross-platform development.",
+    "since": "2025-05-15T11:15:00",
+    "endsAt": "2025-05-15T11:45:00",
+    "trackName": "React Native",
+    "room": "Room A",
+    "roomOther": "Room A",
+    "presenters": [
+      {
+        "attributes": {
+          "name": "Riccardo Cipolleschi",
+          "tagline": "React Native Core",
+          "company": {
+            "data": {
+              "attributes": {
+                "name": "Meta"
+              }
+            }
+          },
+          "profilePhoto": {
+            "data": null
+          },
+          "socialLinks": {}
+        }
+      }
+    ],
+    "slug": "react-native-next-chapter",
+    "displayOrder": 4,
+    "recordingLink": null,
+    "type": "SESSION",
+    "isPlenumSession": false
+  },
+  {
+    "id": "rc-session-4",
+    "title": "Server Components Deep Dive",
+    "about": "An in-depth look at React Server Components, how they work, and best practices for adoption.",
+    "since": "2025-05-15T11:15:00",
+    "endsAt": "2025-05-15T11:45:00",
+    "trackName": "Server Components",
+    "room": "Room B",
+    "roomOther": "Room B",
+    "presenters": [
+      {
+        "attributes": {
+          "name": "Dan Abramov",
+          "tagline": "React Team",
+          "company": {
+            "data": {
+              "attributes": {
+                "name": "Independent"
+              }
+            }
+          },
+          "profilePhoto": {
+            "data": null
+          },
+          "socialLinks": {
+            "twitter": "https://twitter.com/dan_abramov"
+          }
+        }
+      }
+    ],
+    "slug": "server-components-deep-dive",
+    "displayOrder": 5,
+    "recordingLink": null,
+    "type": "SESSION",
+    "isPlenumSession": false
+  }
+]
+
