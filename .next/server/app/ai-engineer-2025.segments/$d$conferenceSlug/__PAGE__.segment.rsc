@@ -1,9 +1,0 @@
-1:"$Sreact.fragment"
-2:I[79504,["/_next/static/chunks/93872095a550feb2.js","/_next/static/chunks/7520ee8aae69f324.js"],"ClientPageRoot"]
-3:I[2353,["/_next/static/chunks/64e3df1c089e7c4e.js","/_next/static/chunks/095993236452827f.js","/_next/static/chunks/39f9452ef69ceb8a.js","/_next/static/chunks/a34f750931b33e31.js"],"default"]
-6:I[53316,["/_next/static/chunks/93872095a550feb2.js","/_next/static/chunks/7520ee8aae69f324.js"],"OutletBoundary"]
-7:"$Sreact.suspense"
-0:{"buildId":"9nBwCkdxsI4jCH-80n5t3","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{"conferenceSlug":"ai-engineer-2025"},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/095993236452827f.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/39f9452ef69ceb8a.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/a34f750931b33e31.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
-4:{}
-5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
-8:null

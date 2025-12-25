@@ -15,7 +15,7 @@ import { Play, FastForward, Clock } from 'lucide-react';
 
 interface NowNextBannerProps {
   sessions: Session[];
-  onSessionClick?: (sessionId: string, bannerType: 'now' | 'next') => void;
+  onSessionClick?: (sessionId: string) => void;
   // Optional locale config for time formatting
   localeConfig?: LocaleConfig;
 }
@@ -51,7 +51,7 @@ export function NowNextBanner({ sessions, onSessionClick, localeConfig }: NowNex
           {/* Now Playing */}
           {currentSession && (
             <button
-              onClick={() => onSessionClick?.(currentSession.id, 'now')}
+              onClick={() => onSessionClick?.(currentSession.id)}
               className="flex-1 flex items-start gap-3 p-3 rounded-lg bg-[var(--color-now)]/10 border border-[var(--color-now)]/30 hover:bg-[var(--color-now)]/15 transition-colors text-left"
             >
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-now)] flex items-center justify-center">
@@ -84,7 +84,7 @@ export function NowNextBanner({ sessions, onSessionClick, localeConfig }: NowNex
                 return (
                   <button
                     key={session.id}
-                    onClick={() => onSessionClick?.(session.id, 'next')}
+                    onClick={() => onSessionClick?.(session.id)}
                     className={cn(
                       'flex items-center gap-3 p-2 rounded-lg transition-colors text-left',
                       'hover:bg-[var(--color-surface-elevated)]',

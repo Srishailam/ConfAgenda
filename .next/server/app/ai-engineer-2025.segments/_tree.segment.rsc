@@ -1,3 +1,0 @@
-:HL["/_next/static/chunks/e438813ff3d45bba.css","style"]
-:HL["https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap","style"]
-0:{"buildId":"9nBwCkdxsI4jCH-80n5t3","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"conferenceSlug","paramType":"d","paramKey":"ai-engineer-2025","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

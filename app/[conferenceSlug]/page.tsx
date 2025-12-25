@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, use, useCallback, useRef, useEffect } from 'react';
+import { useState, useMemo, use } from 'react';
 import { notFound } from 'next/navigation';
 import { DayNavigator } from '@/app/components/schedule/DayNavigator';
 import { ViewToggle } from '@/app/components/schedule/ViewToggle';
@@ -15,7 +15,6 @@ import { getScheduleData } from '@/app/data/schedules';
 import { ConferenceProvider } from '@/app/lib/config-provider';
 import { type ConferenceConfig } from '@/app/config/types';
 import { ThemeToggle } from '@/app/components/ui/theme-toggle';
-import { useAnalytics } from '@/app/lib/use-analytics';
 import { Calendar, MapPin } from 'lucide-react';
 
 interface ConferencePageProps {
@@ -53,76 +52,9 @@ function ScheduleContent({ config, sessions }: ScheduleContentProps) {
   const [showBookmarksOnly, setShowBookmarksOnly] = useState(false);
 
   const { bookmarks, toggleBookmark, isBookmarked } = useBookmarks();
-  const { trackDayChanged, trackViewModeChanged, trackSearch, trackFilterApplied, trackFilterCleared, trackSessionBookmarked, trackNowNextClicked } = useAnalytics();
 
   const tracks = useMemo(() => getUniqueTracks(sessions), [sessions]);
   const rooms = useMemo(() => getUniqueRooms(sessions), [sessions]);
-
-  // Debounced search tracking
-  const searchTimeoutRef = useRef<NodeJS.Timeout>();
-  useEffect(() => {
-    if (searchQuery.length >= 2) {
-      clearTimeout(searchTimeoutRef.current);
-      searchTimeoutRef.current = setTimeout(() => {
-        trackSearch(searchQuery, filteredSessions.length);
-      }, 500);
-    }
-    return () => clearTimeout(searchTimeoutRef.current);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery]);
-
-  // Tracked handlers
-  const handleDayChange = useCallback((newDay: string) => {
-    trackDayChanged(activeDay, newDay);
-    setActiveDay(newDay);
-  }, [activeDay, trackDayChanged]);
-
-  const handleViewModeChange = useCallback((newMode: 'list' | 'timeline') => {
-    trackViewModeChanged(viewMode, newMode);
-    setViewMode(newMode);
-  }, [viewMode, trackViewModeChanged]);
-
-  const handleTrackChange = useCallback((track: string) => {
-    if (track !== 'all') {
-      trackFilterApplied('track', track);
-    }
-    setSelectedTrack(track);
-  }, [trackFilterApplied]);
-
-  const handleRoomChange = useCallback((room: string) => {
-    if (room !== 'all') {
-      trackFilterApplied('room', room);
-    }
-    setSelectedRoom(room);
-  }, [trackFilterApplied]);
-
-  const handleBookmarksOnlyChange = useCallback((show: boolean) => {
-    if (show) {
-      trackFilterApplied('bookmarks', 'only');
-    }
-    setShowBookmarksOnly(show);
-  }, [trackFilterApplied]);
-
-  const handleToggleBookmark = useCallback((sessionId: string) => {
-    const session = sessions.find(s => s.id === sessionId);
-    if (session) {
-      const action = isBookmarked(sessionId) ? 'remove' : 'add';
-      trackSessionBookmarked(
-        { id: session.id, title: session.title, track: session.trackName },
-        action
-      );
-    }
-    toggleBookmark(sessionId);
-  }, [sessions, isBookmarked, trackSessionBookmarked, toggleBookmark]);
-
-  const handleNowNextClick = useCallback((sessionId: string, bannerType: 'now' | 'next') => {
-    const session = sessions.find(s => s.id === sessionId);
-    if (session) {
-      trackNowNextClicked({ id: session.id, title: session.title }, bannerType);
-    }
-    const element = document.getElementById(`session-${sessionId}`);
-    element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, [sessions, trackNowNextClicked]);
 
   const filteredSessions = useMemo(() => {
     let result = getSessionsByDay(sessions, activeDay);
@@ -180,7 +112,7 @@ function ScheduleContent({ config, sessions }: ScheduleContentProps) {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <ViewToggle viewMode={viewMode} onViewModeChange={handleViewModeChange} />
+                <ViewToggle viewMode={viewMode} onViewModeChange={setViewMode} />
                 <ThemeToggle />
               </div>
             </div>
@@ -188,7 +120,7 @@ function ScheduleContent({ config, sessions }: ScheduleContentProps) {
         </header>
 
         {/* Day Navigation */}
-        <DayNavigator days={config.days} activeDay={activeDay} onDayChange={handleDayChange} />
+        <DayNavigator days={config.days} activeDay={activeDay} onDayChange={setActiveDay} />
 
         {/* Filters - included in sticky */}
         <FilterBar
@@ -199,10 +131,10 @@ function ScheduleContent({ config, sessions }: ScheduleContentProps) {
           searchQuery={searchQuery}
           showBookmarksOnly={showBookmarksOnly}
           bookmarkCount={bookmarks.length}
-          onTrackChange={handleTrackChange}
-          onRoomChange={handleRoomChange}
+          onTrackChange={setSelectedTrack}
+          onRoomChange={setSelectedRoom}
           onSearchChange={setSearchQuery}
-          onBookmarksOnlyChange={handleBookmarksOnlyChange}
+          onBookmarksOnlyChange={setShowBookmarksOnly}
         />
       </div>
 
@@ -210,7 +142,10 @@ function ScheduleContent({ config, sessions }: ScheduleContentProps) {
       <NowNextBanner
         sessions={filteredSessions}
         localeConfig={localeConfig}
-        onSessionClick={handleNowNextClick}
+        onSessionClick={(sessionId) => {
+          const element = document.getElementById(`session-${sessionId}`);
+          element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }}
       />
 
       {/* Main Content */}
@@ -241,7 +176,7 @@ function ScheduleContent({ config, sessions }: ScheduleContentProps) {
           <ListView
             sessions={filteredSessions}
             isBookmarked={isBookmarked}
-            onToggleBookmark={handleToggleBookmark}
+            onToggleBookmark={toggleBookmark}
             tracks={config.tracks}
             localeConfig={localeConfig}
           />
@@ -249,7 +184,7 @@ function ScheduleContent({ config, sessions }: ScheduleContentProps) {
           <TimelineView
             sessions={filteredSessions}
             isBookmarked={isBookmarked}
-            onToggleBookmark={handleToggleBookmark}
+            onToggleBookmark={toggleBookmark}
             tracks={config.tracks}
             localeConfig={localeConfig}
           />

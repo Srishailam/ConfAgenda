@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
-import { Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { ThemeProvider } from './lib/theme-context';
-import { PostHogProvider } from './lib/posthog-provider';
 
 export const metadata: Metadata = {
   title: 'ConfAgenda | Conference Schedule',
@@ -50,11 +50,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="min-h-screen antialiased bg-[var(--color-background)] text-[var(--color-text-primary)]">
-        <Suspense fallback={null}>
-          <PostHogProvider>
-            <ThemeProvider defaultTheme="system">{children}</ThemeProvider>
-          </PostHogProvider>
-        </Suspense>
+        <ThemeProvider defaultTheme="system">{children}</ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
